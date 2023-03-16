@@ -1237,3 +1237,5 @@ Purchase date was not a valid date
 Select an action: a=add concert, d=display all concerts, p=purchase ticket, w=add to waitlist, q=quit: 
 q
 ```
+
+This last task can be completed at the end of the module.
