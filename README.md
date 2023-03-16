@@ -1238,4 +1238,5 @@ Select an action: a=add concert, d=display all concerts, p=purchase ticket, w=ad
 q
 ```
 
-This last task can be completed at the end of the module.
+This last task can be completed at the end of the module. There will be no
+project work time for this last task.
