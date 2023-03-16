@@ -421,7 +421,7 @@ following UML diagram:
         }
     }
     ```
-   
+
    6. Run the JUnits and ensure it passes with your implementation.
 
 This task can be completed after the More on Inheritance section. Note: There
@@ -984,7 +984,7 @@ and tips on how to integrate the ticket feature:
          2. Print the `AdvanceTicket` and that a ticket has been purchased.
    3. Update the `ConcertServiceTest`:
 
-   ```java 
+   ```java
    import org.junit.jupiter.api.AfterEach;
    import org.junit.jupiter.api.BeforeEach;
    import org.junit.jupiter.api.Test;
