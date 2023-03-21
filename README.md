@@ -1043,6 +1043,7 @@ and tips on how to integrate the ticket feature:
    
        @Test
        void purchaseTicketSoldOutTest() {
+           // Use a walkup ticket to demonstrate that tickets have been sold out
            concertService.addConcert("Taylor Swift" , 3, LocalDate.of(2023, 3, 15));
            concertService.purchaseTicket("Taylor Swift", false, LocalDate.of(2023, 3, 15));
            concertService.purchaseTicket("Taylor Swift", false, LocalDate.of(2023, 3, 15));
@@ -1068,6 +1069,16 @@ and tips on how to integrate the ticket feature:
                          "No concert for Unknown Singer",
                    outputStreamCaptor.toString().trim());
        }
+   
+       @Test
+       void purchaseTicketWalkup() {
+           concertService.addConcert("Taylor Swift" , 3, LocalDate.of(2023, 3, 15));
+           concertService.purchaseTicket("Taylor Swift", false, LocalDate.of(2023, 3, 15));
+            assertEquals("Added concert\n" +
+                         "Ticket Number = 3, Price = 50.00\n" +
+                         "Ticket purchased",
+                   outputStreamCaptor.toString().trim());
+    }
    
        @Test
        void testPurchaseTicketStudent() {
