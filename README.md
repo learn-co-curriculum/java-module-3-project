@@ -581,10 +581,12 @@ class ConcertTest {
         assertEquals("The Weekend", c1.getPerformer());
         assertEquals(10, c1.getAvailable());
         assertEquals(0, c1.getWaitlist());
+       assertEquals(LocalDate.of(2023, 3, 15), c1.getConcertDate());
 
         assertEquals("Harry Styles", c2.getPerformer());
         assertEquals(2, c2.getAvailable());
         assertEquals(0, c2.getWaitlist());
+       assertEquals(LocalDate.of(2023, 3, 17), c2.getConcertDate());
     }
 
     @Test
