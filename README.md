@@ -146,13 +146,13 @@ class ConcertRepositoryTest {
     @Test
     void getConcertState() {
         // add 3 concerts
-        assertTrue(repository.add(new Concert("The Weekend", 1000)));
+        assertTrue(repository.add(new Concert("The Weeknd", 1000)));
         assertTrue(repository.add(new Concert("Taylor Swift", 500)));
         assertTrue(repository.add(new Concert("Harry Styles", 20000)));
         assertEquals(3, repository.getAllConcerts().size());
 
         // confirm each concert was inserted in the correct array position
-        assertEquals("The Weekend", repository.get(0).getPerformer());
+        assertEquals("The Weeknd", repository.get(0).getPerformer());
         assertEquals("Taylor Swift", repository.get(1).getPerformer());
         assertEquals("Harry Styles", repository.get(2).getPerformer());
     }
@@ -172,15 +172,15 @@ class ConcertRepositoryTest {
     @Test
     void findByPerformer() {
         repository.add(new Concert("Taylor Swift", 1000));
-        repository.add(new Concert("The Weekend", 500));
+        repository.add(new Concert("The Weeknd", 500));
 
         Concert c1 = repository.findByPerformer("Taylor Swift");
         assertEquals("Taylor Swift", c1.getPerformer());
         assertEquals(1000, c1.getAvailable());
         assertEquals(0, c1.getWaitlist());
 
-        Concert c2 = repository.findByPerformer("The Weekend");
-        assertEquals("The Weekend", c2.getPerformer());
+        Concert c2 = repository.findByPerformer("The Weeknd");
+        assertEquals("The Weeknd", c2.getPerformer());
         assertEquals(500, c2.getAvailable());
         assertEquals(0, c2.getWaitlist());
 
@@ -193,7 +193,7 @@ class ConcertRepositoryTest {
     @Test
     void caseInsensitiveFind() {
         repository.add(new Concert("Taylor Swift", 1000));
-        repository.add(new Concert("The Weekend", 500));
+        repository.add(new Concert("The Weeknd", 500));
 
         Concert c1 = repository.findByPerformer("TAYLOR swift");
         assertEquals("Taylor Swift", c1.getPerformer());
@@ -251,12 +251,12 @@ class ConcertServiceTest {
     @Test
     void displayNonEmpty() {
         concertService.addConcert("Taylor Swift" , 100);
-        concertService.addConcert("The Weekend", 5000);
+        concertService.addConcert("The Weeknd", 5000);
         concertService.displayConcerts();
         assertEquals("Added concert\n" +
                      "Added concert\n" +
                      "Concert{performer='Taylor Swift', available=100, waitlist=0}\n" +
-                     "Concert{performer='The Weekend', available=5000, waitlist=0}",
+                     "Concert{performer='The Weeknd', available=5000, waitlist=0}",
                      outputStreamCaptor.toString().trim());
     }
 
@@ -290,10 +290,10 @@ class ConcertServiceTest {
     @Test
     void addToWaitlist() {
         concertService.addConcert("Taylor Swift" , 100);
-        concertService.addConcert("The Weekend", 5000);
+        concertService.addConcert("The Weeknd", 5000);
         concertService.addToWaitlist("Taylor Swift");
         concertService.addToWaitlist("Taylor Swift");
-        concertService.addToWaitlist("The Weekend");
+        concertService.addToWaitlist("The Weeknd");
         // no concert
         concertService.addToWaitlist("Unknown Singer");
 
@@ -572,13 +572,13 @@ class ConcertTest {
 
     @BeforeEach
     void setup() {
-         c1 = new Concert("The Weekend", 10, LocalDate.of(2023, 3, 15));
+         c1 = new Concert("The Weeknd", 10, LocalDate.of(2023, 3, 15));
          c2 = new Concert("Harry Styles", 2, LocalDate.of(2023, 3, 17));
     }
 
     @Test
     void constructor() {
-        assertEquals("The Weekend", c1.getPerformer());
+        assertEquals("The Weeknd", c1.getPerformer());
         assertEquals(10, c1.getAvailable());
         assertEquals(0, c1.getWaitlist());
        assertEquals(LocalDate.of(2023, 3, 15), c1.getConcertDate());
@@ -591,7 +591,7 @@ class ConcertTest {
 
     @Test
     void testToString() {
-        assertEquals("Concert{performer='The Weekend', available=10, waitlist=0, concertDate=2023-03-15}", c1.toString());
+        assertEquals("Concert{performer='The Weeknd', available=10, waitlist=0, concertDate=2023-03-15}", c1.toString());
         assertEquals("Concert{performer='Harry Styles', available=2, waitlist=0, concertDate=2023-03-17}", c2.toString());
     }
 
@@ -694,13 +694,13 @@ class ConcertRepositoryTest {
     @Test
     void getConcertState() {
         // add 3 concerts
-        assertTrue(repository.add(new Concert("The Weekend", 1000, LocalDate.of(2023, 3, 15))));
+        assertTrue(repository.add(new Concert("The Weeknd", 1000, LocalDate.of(2023, 3, 15))));
         assertTrue(repository.add(new Concert("Taylor Swift", 500, LocalDate.of(2023, 3, 16))));
         assertTrue(repository.add(new Concert("Harry Styles", 20000, LocalDate.of(2023, 3, 17))));
         assertEquals(3, repository.getAllConcerts().size());
 
         // confirm each concert was inserted in the correct array position
-        assertEquals("The Weekend", repository.get(0).getPerformer());
+        assertEquals("The Weeknd", repository.get(0).getPerformer());
         assertEquals("Taylor Swift", repository.get(1).getPerformer());
         assertEquals("Harry Styles", repository.get(2).getPerformer());
     }
@@ -720,15 +720,15 @@ class ConcertRepositoryTest {
     @Test
     void findByPerformer() {
         repository.add(new Concert("Taylor Swift", 1000, LocalDate.of(2023, 3, 15)));
-        repository.add(new Concert("The Weekend", 500, LocalDate.of(2023, 3, 17)));
+        repository.add(new Concert("The Weeknd", 500, LocalDate.of(2023, 3, 17)));
 
         Concert c1 = repository.findByPerformer("Taylor Swift");
         assertEquals("Taylor Swift", c1.getPerformer());
         assertEquals(1000, c1.getAvailable());
         assertEquals(0, c1.getWaitlist());
 
-        Concert c2 = repository.findByPerformer("The Weekend");
-        assertEquals("The Weekend", c2.getPerformer());
+        Concert c2 = repository.findByPerformer("The Weeknd");
+        assertEquals("The Weeknd", c2.getPerformer());
         assertEquals(500, c2.getAvailable());
         assertEquals(0, c2.getWaitlist());
 
@@ -741,7 +741,7 @@ class ConcertRepositoryTest {
     @Test
     void caseInsensitiveFind() {
         repository.add(new Concert("Taylor Swift", 1000, LocalDate.of(2023, 3, 15)));
-        repository.add(new Concert("The Weekend", 500, LocalDate.of(2023, 3, 16)));
+        repository.add(new Concert("The Weeknd", 500, LocalDate.of(2023, 3, 16)));
 
         Concert c1 = repository.findByPerformer("TAYLOR swift");
         assertEquals("Taylor Swift", c1.getPerformer());
@@ -801,12 +801,12 @@ class ConcertServiceTest {
     @Test
     void displayNonEmpty() {
         concertService.addConcert("Taylor Swift" , 100, LocalDate.of(2023, 3, 15));
-        concertService.addConcert("The Weekend", 5000, LocalDate.of(2023, 3, 16));
+        concertService.addConcert("The Weeknd", 5000, LocalDate.of(2023, 3, 16));
         concertService.displayConcerts();
         assertEquals("Added concert\n" +
                      "Added concert\n" +
                      "Concert{performer='Taylor Swift', available=100, waitlist=0, concertDate=2023-03-15}\n" +
-                     "Concert{performer='The Weekend', available=5000, waitlist=0, concertDate=2023-03-16}",
+                     "Concert{performer='The Weeknd', available=5000, waitlist=0, concertDate=2023-03-16}",
                      outputStreamCaptor.toString().trim());
     }
 
@@ -840,10 +840,10 @@ class ConcertServiceTest {
     @Test
     void addToWaitlist() {
         concertService.addConcert("Taylor Swift" , 100, LocalDate.of(2023, 3, 15));
-        concertService.addConcert("The Weekend", 5000, LocalDate.of(2023, 3, 15));
+        concertService.addConcert("The Weeknd", 5000, LocalDate.of(2023, 3, 15));
         concertService.addToWaitlist("Taylor Swift");
         concertService.addToWaitlist("Taylor Swift");
-        concertService.addToWaitlist("The Weekend");
+        concertService.addToWaitlist("The Weeknd");
         // no concert
         concertService.addToWaitlist("Unknown Singer");
 
@@ -897,13 +897,13 @@ and tips on how to integrate the ticket feature:
    
        @BeforeEach
        void setup() {
-            c1 = new Concert("The Weekend", 10, LocalDate.of(2023, 3, 15));
+            c1 = new Concert("The Weeknd", 10, LocalDate.of(2023, 3, 15));
             c2 = new Concert("Harry Styles", 2, LocalDate.of(2023, 3, 17));
        }
    
        @Test
        void constructor() {
-           assertEquals("The Weekend", c1.getPerformer());
+           assertEquals("The Weeknd", c1.getPerformer());
            assertEquals(10, c1.getAvailable());
            assertEquals(0, c1.getWaitlist());
    
@@ -914,7 +914,7 @@ and tips on how to integrate the ticket feature:
    
        @Test
        void testToString() {
-           assertEquals("concert.Concert{performer='The Weekend', available=10, waitlist=0, concertDate=2023-03-15}", c1.toString());
+           assertEquals("concert.Concert{performer='The Weeknd', available=10, waitlist=0, concertDate=2023-03-15}", c1.toString());
            assertEquals("concert.Concert{performer='Harry Styles', available=2, waitlist=0, concertDate=2023-03-17}", c2.toString());
        }
    
@@ -1032,12 +1032,12 @@ and tips on how to integrate the ticket feature:
        @Test
        void displayNonEmpty() {
            concertService.addConcert("Taylor Swift" , 100, LocalDate.of(2023, 3, 15));
-           concertService.addConcert("The Weekend", 5000, LocalDate.of(2023, 3, 16));
+           concertService.addConcert("The Weeknd", 5000, LocalDate.of(2023, 3, 16));
            concertService.displayConcerts();
            assertEquals("Added concert\n" +
                         "Added concert\n" +
                         "concert.Concert{performer='Taylor Swift', available=100, waitlist=0, concertDate=2023-03-15}\n" +
-                        "concert.Concert{performer='The Weekend', available=5000, waitlist=0, concertDate=2023-03-16}",
+                        "concert.Concert{performer='The Weeknd', available=5000, waitlist=0, concertDate=2023-03-16}",
                         outputStreamCaptor.toString().trim());
        }
    
